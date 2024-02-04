@@ -67,7 +67,7 @@ class TodoController extends AbstractController
         return $this->json($form->getErrors(), 400);
     }
 
-    #[Route('/update', name: 'update_todo')]
+    #[Route('/update/{id}', name: 'update_todo')]
 
     public function update(EntityManagerInterface $entityManager, Request $request, Todo $todo): Response
     {
@@ -87,7 +87,7 @@ class TodoController extends AbstractController
         return $this->json($form->getErrors(), 400);
     }
 
-    #[Route('/delete', name: 'delete_todo')]
+    #[Route('/delete/{id}', name: 'delete_todo')]
     public function delete(EntityManagerInterface $entityManager, Request $request, Todo $todo): Response
     {
         $entityManager->remove($todo);
